@@ -1,37 +1,29 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
-import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
-import HomeScreen from './app/screens/Home';
-import ProfileScreen from './app/screens/Profile';
 
-const RootTabs = TabNavigator({
-    Home: {
-        screen: HomeScreen,
-        navigationOptions: {
-            tabBarLabel: 'HomeScreen',
-            tabBarIcon: ({ tintColor, focused }) => (
-                <Ionicons
-                    name={focused ? 'ios-home' : 'ios-home-outline'}
-                    size={26}
-                    style={{ color: tintColor }}
-                />
-            ),
-        },
-    },
-    Profile: {
-        screen: ProfileScreen,
-        navigationOptions: {
-            tabBarLabel: 'ProfileScreen',
-            tabBarIcon: ({ tintColor, focused }) => (
-                <Ionicons
-                    name={focused ? 'ios-person' : 'ios-person-outline'}
-                    size={26}
-                    style={{ color: tintColor }}
-                />
-            ),
-        },
-    },
-});
+import Expo from "expo";
+import RootRouter from "./app/RootNavigator";
 
-export default RootTabs;
+export default class MyApp extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            isReady: false
+        };
+    }
+
+    async componentWillMount() {
+        await Expo.Font.loadAsync({
+            Roboto: require("native-base/Fonts/Roboto.ttf"),
+            Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+            Ionicons: require("native-base/Fonts/Ionicons.ttf")
+        });
+        this.setState({isReady: true});
+    }
+
+    render() {
+        if (!this.state.isReady) {
+            return <Expo.AppLoading/>;
+        }
+        return <RootRouter/>;
+    }
+}

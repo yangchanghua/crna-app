@@ -1,27 +1,24 @@
 import React, {Component} from 'react';
-import {View, Text, Image} from 'react-native';
-import { Card, ListItem, Button } from 'react-native-elements'
+import {View, Image} from 'react-native';
+import { Card, CardItem, Text} from 'native-base'
 
 
 export default class StorePoster extends Component {
     render() {
         return (
             <View>
-                <Card
-                    title='川西坝子'
-                    style={styles.card}
-                    image={require('../images/store_1.png')}>
+                <Card>
+                    <CardItem>
+                        <Text>川西坝子</Text>
+                    </CardItem>
+                    <CardItem>
+                        <Image source={require('../images/store_1.png')} style={{height: 80, width: null, flex: 1}}/>
+                    </CardItem>
                 </Card>
             </View>
         )
     }
 }
-
-{/*<Button*/}
-    {/*icon={{name: 'order'}}*/}
-    {/*backgroundColor='#03A9F4'*/}
-    {/*buttonStyle={styles.button}*/}
-    {/*title='订餐' />*/}
 
 const styles = {
     card: {
