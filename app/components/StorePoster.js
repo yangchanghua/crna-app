@@ -1,21 +1,18 @@
 import React, {Component} from 'react';
-import {View, Image} from 'react-native';
-import { Card, CardItem, Text} from 'native-base'
+import {View, Image, TouchableOpacity} from 'react-native';
+import {Card, CardItem, Text, Body} from 'native-base'
 
 
 export default class StorePoster extends Component {
+
     render() {
         return (
-            <View>
-                <Card>
-                    <CardItem>
-                        <Text>川西坝子</Text>
-                    </CardItem>
-                    <CardItem>
-                        <Image source={require('../images/store_1.png')} style={{height: 80, width: null, flex: 1}}/>
-                    </CardItem>
-                </Card>
-            </View>
+            <Card style={{flex: 0}}>
+                <CardItem cardBody button onPress={() => this.props.navigation.navigate('Store')}>
+                    <Image source={require('../images/store_1.png')}
+                           style={{height: 120, width: null, flex: 1}}/>
+                </CardItem>
+            </Card>
         )
     }
 }
@@ -26,6 +23,6 @@ const styles = {
     },
     button: {
         borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0,
-        paddingHorizontal:0,
+        paddingHorizontal: 0,
     }
 };

@@ -16,7 +16,6 @@ export default class Home extends React.Component {
                         <Icon name='arrow-down'/>
                     </Button>
                 </Left>
-
                 <Right>
                     <Button rounded bordered
                             onPress={() => navigation.navigate('Search')}>
@@ -32,7 +31,7 @@ export default class Home extends React.Component {
         return (
                 <Container>
                     <Content>
-                        <StorePoster />
+                        <StorePoster navigation={this.props.navigation} />
                         <Categories/>
                         <Text style={{fontSize: 12}}>收藏</Text>
                         <ScrollView>
