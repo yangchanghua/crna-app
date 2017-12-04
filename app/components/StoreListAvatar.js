@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text, Image, TouchableOpacity, FlatList} from 'react-native';
-import { List, ListItem, Button } from 'react-native-elements'
-import CategoryItem from "./CategoryItem";
+import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {List, ListItem, Button, Left, Thumbnail, Body, Right,} from 'native-base';
 
 const stores = [
     {
@@ -48,36 +47,32 @@ const stores = [
     },
 ];
 
-export default class StoreList extends Component {
+export default class StoreListAvatar extends Component {
 
     _onPress = (item) => {
-
+        this.props.navigation.navigate('Store', {name: item});
     };
 
     render() {
         return (
-            <List containerStyle={{marginBottom: 20}}>
+            <List>
                 {
                     stores.map((l, i) => (
-                        <ListItem
-                            roundAvatar
-                            avatar={l.avatar_url}
-                            key={i}
-                            title={l.name}
-                            onPress={this._onPress}
-                        />
+                        <ListItem avatar onPress={() => this._onPress(l.name)}>
+                            <Left>
+                                <Thumbnail source={l.avatar_url} />
+                            </Left>
+                            <Body>
+                            <Text>{l.name}</Text>
+                            <Text>美食</Text>
+                            </Body>
+                            <Right>
+                                <Text note>8.8折买单</Text>
+                            </Right>
+                        </ListItem>
                     ))
                 }
             </List>
         );
     }
 }
-
-const styles = {
-    container: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        // alignContent: 'center',
-    }
-
-};

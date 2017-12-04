@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import CategoryItem from "./CategoryItem";
+import {View, Text, TouchableOpacity} from 'react-native';
+import { Button} from "native-base";
+import {Icon} from 'react-native-elements';
 
 const categories = [
     {
@@ -25,13 +26,17 @@ const categories = [
 
 export default class Categories extends Component {
 
-    render () {
+    render() {
         return (
             <View style={styles.container}>
                 {
                     categories.map(cate => {
                         return (
-                            <CategoryItem key={cate.name} title={cate.name} icon={cate.icon}/>
+                            <TouchableOpacity key={cate.name} style={styles.item}
+                            onPress={() => this.props.navigation.navigate('StoreList')}>
+                                <Icon reverse name={cate.icon} type='material-community'/>
+                                <Text>{cate.name}</Text>
+                            </TouchableOpacity>
                         )
                     })
                 }
@@ -46,6 +51,10 @@ const styles = {
         flexDirection: 'row',
         justifyContent: 'center',
         // alignContent: 'center',
+    },
+    item: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     }
-
 };
