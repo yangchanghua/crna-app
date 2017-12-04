@@ -13,7 +13,7 @@ export default class Store extends React.Component {
                             </Button>
                         </Left>
                         <Body>
-                        <Title>NearBy</Title>
+                        <Title>发现附近</Title>
                         </Body>
                         <Right />
                     </Header>

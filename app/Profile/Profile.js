@@ -3,6 +3,7 @@ import React from 'react';
 import {Container,Title, Header, Left, Body, Right, Content, Button, Text, Icon} from 'native-base';
 
 export default class Store extends React.Component {
+
     render() {
         return (
             <Container>
@@ -13,9 +14,9 @@ export default class Store extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                    <Title>Profile</Title>
+                    <Title>我的</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     <Text>Profile</Text>
