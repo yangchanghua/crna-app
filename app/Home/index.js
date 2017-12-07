@@ -2,7 +2,7 @@ import React from 'react';
 import {StackNavigator} from 'react-navigation';
 import ChooseCity from '../ChooseCity/ChooseCity'
 import Search from '../Search/Search'
-import StoreList from '../StoreList/StoreList'
+import StoreList from '../StoreSearchResult/StoreSearchResult'
 import Store from '../Store/Store'
 import Pay from '../Pay/Pay'
 import Home from "./Home";
