@@ -47,7 +47,10 @@ export default class Search extends React.Component {
                             <CardItem>
                                 <List>
                                     {(this.keywords.map(item =>
-                                        <ListItem onPress={() => this.props.navigation.navigate('StoreSearchResult')}>
+                                        <ListItem onPress={() => this.props.navigation.navigate('StoreSearchResult',
+                                            {
+                                                name: item
+                                            })}>
                                             <Text>{item}</Text>
                                         </ListItem>
                                     ))}

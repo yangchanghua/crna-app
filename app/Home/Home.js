@@ -2,8 +2,8 @@ import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
 import StorePoster from "../components/StorePoster";
 import Categories from "../components/Categories";
-import StoreListAvatar from "../components/StoreListAvatar";
 import {Container,Title, Header, Left, Body, Right, Content, Button, Text, Icon} from 'native-base';
+import StoreListBigger from "../components/StoreListBigger";
 
 export default class Home extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -34,9 +34,7 @@ export default class Home extends React.Component {
                         <StorePoster navigation={this.props.navigation} />
                         <Categories navigation={this.props.navigation}/>
                         <Text style={{fontSize: 12}}>收藏</Text>
-                        <ScrollView>
-                            <StoreListAvatar navigation={this.props.navigation}/>
-                        </ScrollView>
+                            <StoreListBigger navigation={this.props.navigation}/>
                     </Content>
                 </Container>
         );

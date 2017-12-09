@@ -2,7 +2,7 @@ import React from 'react';
 import {Alert } from 'react-native';
 import {Container,Title, Header, Left, Body, Right, Content, Button, Text, Item, Input, Icon} from 'native-base';
 import StoreListNav from "../components/StoreListNav";
-import StoreListAvatar from "../components/StoreListAvatar";
+import StoreListBigger from "../components/StoreListBigger";
 
 export default class NearBy extends React.Component {
 
@@ -31,7 +31,7 @@ export default class NearBy extends React.Component {
                     </Header>
                     <Content>
                         <StoreListNav/>
-                        <StoreListAvatar navigation={this.props.navigation}/>
+                        <StoreListBigger navigation={this.props.navigation}/>
                     </Content>
                 </Container>
         );
