@@ -9,7 +9,8 @@ const stores = [
         avatar_url: require('../images/store_1.png'),
         icon: 'food-fork-drink',
         distance: 1.2,
-        discount: 9.0
+        discount: 9.0,
+        addr: '成都市华阳正北下街44号'
     },
     {
         name: '王妈热卤',
@@ -17,7 +18,8 @@ const stores = [
         avatar_url: require('../images/store_1.png'),
         icon: 'fitness-center',
         distance: 0.2,
-        discount: 8.0
+        discount: 8.0,
+        addr: '成都市华阳正北下街44号'
     },
     {
         name: '霸王虾',
@@ -25,7 +27,8 @@ const stores = [
         avatar_url: require('../images/store_1.png'),
         icon: 'movie-roll',
         distance: 0.3,
-        discount: 8.8
+        discount: 8.8,
+        addr: '成都市华阳正北下街44号'
     },
     {
         name: '星巴克(银泰店)',
@@ -33,7 +36,8 @@ const stores = [
         avatar_url: require('../images/store_1.png'),
         icon: 'movie-roll',
         distance: 2.4,
-        discount: 8.8
+        discount: 8.8,
+        addr: '成都市华阳正北下街44号'
     },
     {
         name: '川西坝子',
@@ -41,7 +45,8 @@ const stores = [
         avatar_url: require('../images/store_1.png'),
         icon: 'food-fork-drink',
         distance: 1.2,
-        discount: 9.0
+        discount: 9.0,
+        addr: '成都市华阳正北下街44号'
     },
     {
         name: '王妈热卤',
@@ -49,7 +54,8 @@ const stores = [
         avatar_url: require('../images/store_1.png'),
         icon: 'fitness-center',
         distance: 0.2,
-        discount: 8.0
+        discount: 8.0,
+        addr: '成都市华阳正北下街44号'
     },
     {
         name: '霸王虾',
@@ -57,7 +63,8 @@ const stores = [
         avatar_url: require('../images/store_1.png'),
         icon: 'movie-roll',
         distance: 0.3,
-        discount: 8.8
+        discount: 8.8,
+        addr: '成都市华阳正北下街44号'
     },
     {
         name: '星巴克(银泰店)',
@@ -65,19 +72,21 @@ const stores = [
         avatar_url: require('../images/store_1.png'),
         icon: 'movie-roll',
         distance: 2.4,
-        discount: 8.8
+        discount: 8.8,
+        addr: '成都市华阳正北下街44号'
     },
 ];
 
 export default class StoreListBigger extends Component {
 
-    handleStoreClick (name) {
-        this.props.navigation.navigate('Store');
+    handleStoreClick (store) {
+        this.props.navigation.navigate('Store', {
+            store: store,
+        });
     }
     handlePayClick(store) {
         this.props.navigation.navigate('Pay', {
-            store: store.name,
-            discount: store.discount,
+            store: store,
         });
     }
     render() {
@@ -85,7 +94,7 @@ export default class StoreListBigger extends Component {
             <List>
                 {
                     stores.map((item) => (
-                        <ListItem avatar onPress={() => this.handleStoreClick(item.name)}
+                        <ListItem avatar onPress={() => this.handleStoreClick(item)}
                          style={{margin: 5}}>
                             <Left>
                                 <Thumbnail square large source={item.avatar_url} />

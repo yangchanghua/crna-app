@@ -15,7 +15,7 @@ export default class CityGrid extends React.Component {
         return (
             <List dataArray={this.props.visitedCities} style={styles.list}
             renderRow={(item) =>
-                <ListItem onPress={() => this.props.handleStoreClick(item)} style={styles.item}>
+                <ListItem onPress={() => this.props.handleClick(item)} style={styles.item}>
                     <Text>{item}</Text>
                 </ListItem>
             }>

@@ -18,7 +18,7 @@ export default class CityList extends React.Component {
                             </ListItem>
                         ];
 
-                        cityItems = item.list.map(city => <ListItem onPress={() => this.props.handleStoreClick(city)}>
+                        cityItems = item.list.map(city => <ListItem onPress={() => this.props.handleClick(city)}>
                             <Text>{city}</Text>
                         </ListItem>);
                         listItems.push(cityItems);
