@@ -49,16 +49,15 @@ const stores = [
 
 export default class StoreListAvatar extends Component {
 
-    _onPress = (item) => {
-        this.props.navigation.navigate('Store', {name: item});
-    };
-
+    handleClick (name) {
+        this.props.navigation.navigate('Store');
+    }
     render() {
         return (
             <List>
                 {
                     stores.map((l, i) => (
-                        <ListItem avatar onPress={() => this._onPress(l.name)}>
+                        <ListItem avatar onPress={() => this.handleClick(l.name)}>
                             <Left>
                                 <Thumbnail source={l.avatar_url} />
                             </Left>

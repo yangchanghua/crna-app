@@ -33,7 +33,7 @@ export default class Categories extends Component {
                     categories.map(cate => {
                         return (
                             <TouchableOpacity key={cate.name} style={styles.item}
-                            onPress={() => this.props.navigation.navigate('StoreList')}>
+                            onPress={() => this.props.navigation.navigate('StoreSearchResult')}>
                                 <Icon reverse name={cate.icon} type='material-community'/>
                                 <Text>{cate.name}</Text>
                             </TouchableOpacity>

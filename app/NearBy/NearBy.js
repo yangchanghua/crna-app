@@ -1,10 +1,16 @@
 import React from 'react';
-
+import {Alert } from 'react-native';
 import {Container,Title, Header, Left, Body, Right, Content, Button, Text, Item, Input, Icon} from 'native-base';
 import StoreListNav from "../components/StoreListNav";
 import StoreListAvatar from "../components/StoreListAvatar";
 
-export default class Store extends React.Component {
+export default class NearBy extends React.Component {
+
+    handleClickStore(item) {
+        this.props.navigation.navigate('Store');
+        Alert.alert('item ' + item + ' clicked');
+    }
+
     render() {
         return (
                 <Container>
@@ -25,7 +31,7 @@ export default class Store extends React.Component {
                     </Header>
                     <Content>
                         <StoreListNav/>
-                        <StoreListAvatar/>
+                        <StoreListAvatar navigation={this.props.navigation}/>
                     </Content>
                 </Container>
         );

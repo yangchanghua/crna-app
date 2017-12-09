@@ -4,7 +4,7 @@ import {Container, Title, Header, Left, Body, Right, Content, Button, Text, Icon
 import StoreListNav from '../components/StoreListNav';
 import StoreListAvatar from "../components/StoreListAvatar";
 
-export default class StoreList extends React.Component {
+export default class StoreSearchResult extends React.Component {
     static navigationOptions = ({ navigation }) => ({
         header: (
             <Header>
@@ -30,7 +30,7 @@ export default class StoreList extends React.Component {
             <Container>
                 <Content>
                     <StoreListNav/>
-                    <StoreListAvatar/>
+                    <StoreListAvatar navigation={this.props.navigation}/>
                 </Content>
             </Container>
         );

@@ -5,7 +5,20 @@ import {
     Card, ListItem, List, Input
 } from 'native-base';
 
+
+const keys = [
+    '火锅',
+    '星巴克',
+    '牛肉',
+    '串串',
+    '羊肉汤',
+    '重庆小面',
+    '绵阳米粉',
+];
+
 export default class Search extends React.Component {
+    keywords = keys;
+
     static navigationOptions = ({ navigation }) => ({
         header: (
             <Header>
@@ -33,12 +46,11 @@ export default class Search extends React.Component {
                         <Card>
                             <CardItem>
                                 <List>
-                                    <ListItem><Text>火锅</Text></ListItem>
-                                    <ListItem><Text>火锅</Text></ListItem>
-                                    <ListItem><Text>火锅</Text></ListItem>
-                                    <ListItem><Text>火锅</Text></ListItem>
-                                    <ListItem><Text>火锅</Text></ListItem>
-                                    <ListItem><Text>火锅</Text></ListItem>
+                                    {(this.keywords.map(item =>
+                                        <ListItem onPress={() => this.props.navigation.navigate('StoreSearchResult')}>
+                                            <Text>{item}</Text>
+                                        </ListItem>
+                                    ))}
                                 </List>
                             </CardItem>
                         </Card>

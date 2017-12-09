@@ -5,27 +5,26 @@ import {
 } from 'native-base';
 
 export default class CityList extends React.Component {
+
     render () {
+
         return (
             <List>
-                <ListItem itemDivider>
-                    <Text>A</Text>
-                </ListItem>
-                <ListItem >
-                    <Text>阿坝</Text>
-                </ListItem>
-                <ListItem itemDivider>
-                    <Text>B</Text>
-                </ListItem>
-                <ListItem>
-                    <Text>北京</Text>
-                </ListItem>
-                <ListItem>
-                    <Text>北海</Text>
-                </ListItem>
-                <ListItem>
-                    <Text>百色</Text>
-                </ListItem>
+                {
+                    this.props.cities.map(item => {
+                        listItems = [
+                            <ListItem itemDivider>
+                                <Text>{item.firstChar}</Text>
+                            </ListItem>
+                        ];
+
+                        cityItems = item.list.map(city => <ListItem onPress={() => this.props.handleClick(city)}>
+                            <Text>{city}</Text>
+                        </ListItem>);
+                        listItems.push(cityItems);
+                        return listItems;
+                    })
+                }
             </List>
         );
 
