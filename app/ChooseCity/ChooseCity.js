@@ -29,16 +29,12 @@ export default class ChooseCity extends React.Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            currentCity: '成都',
-        }
     }
 
     handleCityClick(item) {
-        this.setState((prevState) => {
-            return {currentCity: item};
-        })
+        this.props.navigation.navigate('Home', {
+            currentCity: item
+        });
     }
 
     render() {
@@ -80,7 +76,7 @@ export default class ChooseCity extends React.Component {
                 <Content>
                     <Card>
                         <CardItem>
-                            <Text>{this.state.currentCity}</Text>
+                            <Text>{this.props.navigation.state.params.currentCity}</Text>
                             <Button>
                                 <Text style={{fontSize: 10}}>定位</Text>
                                 <Icon name='arrow-down'/>
