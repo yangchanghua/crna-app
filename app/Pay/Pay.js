@@ -5,6 +5,11 @@ import {
     Input, Card, CardItem
 } from 'native-base';
 import {Grid, Row, Column} from "react-native-easy-grid";
+import {Alert} from "react-native";
+
+function handlePayClick() {
+    Alert.alert('打开支付宝支付！功能未实现');
+}
 
 export default class Pay extends React.Component {
 
@@ -58,7 +63,7 @@ export default class Pay extends React.Component {
                             <Text>89 元</Text>
                         </Item>
                         <Item style={{justifyContent: 'center'}}>
-                            <Button warning big>
+                            <Button warning big onPress={() => handlePayClick()}>
                                 <Text style={{fontSize: 18}}>89 元 确认买单</Text>
                             </Button>
                         </Item>

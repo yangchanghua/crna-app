@@ -79,25 +79,27 @@ const stores = [
 
 export default class StoreListBigger extends Component {
 
-    handleStoreClick (store) {
+    handleStoreClick(store) {
         this.props.navigation.navigate('Store', {
             store: store,
         });
     }
+
     handlePayClick(store) {
         this.props.navigation.navigate('Pay', {
             store: store,
         });
     }
+
     render() {
         return (
             <List>
                 {
                     stores.map((item) => (
                         <ListItem avatar onPress={() => this.handleStoreClick(item)}
-                         style={{margin: 5}}>
+                                  style={{margin: 5}}>
                             <Left>
-                                <Thumbnail square large source={item.avatar_url} />
+                                <Thumbnail square large source={item.avatar_url}/>
                             </Left>
                             <Body>
                             <Text style={{fontSize: 18}}>{item.name}</Text>
