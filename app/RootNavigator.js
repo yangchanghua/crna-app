@@ -6,8 +6,15 @@ import NearBy from './NearBy/NearBy';
 import { TabNavigator } from "react-navigation";
 
 import { Button, Text, Icon, Footer, FooterTab } from "native-base";
+import HomeNew from "./Home/HomeNew";
 
 const RootTabs = TabNavigator({
+    HomeNew: {
+        screen: HomeNew,
+        navigationOptions: {
+            tabBarLabel: 'HomeNew',
+        }
+    },
     Home: {
         screen: HomeScreen,
         navigationOptions: {
@@ -28,23 +35,31 @@ const RootTabs = TabNavigator({
         return (
             <Footer>
                 <FooterTab>
+
                     <Button
                         vertical
                         active={props.navigationState.index === 0}
+                        onPress={() => props.navigation.navigate("HomeNew")}>
+                        <Icon name="home" />
+                        <Text>新首页</Text>
+                    </Button>
+                    <Button
+                        vertical
+                        active={props.navigationState.index === 1}
                         onPress={() => props.navigation.navigate("Home")}>
                         <Icon name="home" />
                         <Text>首页</Text>
                     </Button>
                     <Button
                         vertical
-                        active={props.navigationState.index === 1}
+                        active={props.navigationState.index === 2}
                         onPress={() => props.navigation.navigate("NearBy")}>
                         <Icon name="ion-ios-location" />
                         <Text>附近</Text>
                     </Button>
                     <Button
                         vertical
-                        active={props.navigationState.index === 2}
+                        active={props.navigationState.index === 3}
                         onPress={() => props.navigation.navigate("Profile")}>
                         <Icon name="person" />
                         <Text>我的</Text>
