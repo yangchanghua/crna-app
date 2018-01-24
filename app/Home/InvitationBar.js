@@ -33,15 +33,8 @@ export default class InvitationBar extends React.Component {
         <View style={{flexDirection: "row"}}>
             <View style={[styles.gift, {paddingRight: 16}]}>
                 <View>
-                    <Text style={{fontWeight: "bold"}}>{"推荐有奖"}</Text>
-                    <Text style={{fontSize: 12, color: "#aaa"}}>{"5元现金拿不停"}</Text>
-                </View>
-                <Image source={LocalImg.coupon0} style={{height: 50, width: 50, resizeMode: 'cover'}}/>
-            </View>
-            <View style={[styles.gift, {borderLeftColor: "#f5f5f5", borderLeftWidth: 1, paddingLeft: 16}]}>
-                <View>
-                    <Text style={{fontWeight: "bold"}}>{"领券中心"}</Text>
-                    <Text style={{fontSize: 12, color: "#aaa"}}>{"代金券免费领"}</Text>
+                    <Text style={{fontWeight: "bold"}}>{"邀请有奖"}</Text>
+                    <Text style={{fontSize: 12, color: "#aaa"}}>{"邀请好友注册消费，赠送双方5元代金券"}</Text>
                 </View>
                 <Image source={LocalImg.coupon1} style={{height: 50, width: 50, resizeMode: 'cover'}}/>
             </View>

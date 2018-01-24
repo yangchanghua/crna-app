@@ -1,131 +1,125 @@
 let d = {
-  list: [
-    {
-      name: "田老师红烧肉（知春路店）",
-      isBrand: true,
-      logo: 27,
-      scores: 3.5,
-      sale: 4013,
-      bao: true,
-      piao: true,
-      ontime: true,
-      fengniao: true,
-      startPay: "￥20起送",
-      deliverPay: "配送费￥4",
-      evOnePay: "￥21/人",
-      journey: "250m",
-      time: "35分钟",
-      activities: [
-        {key: "减", text: "满20减2，满30减3，满40减4（不与美食活动同享）"},
-        {key: "特", text: "双人餐特惠"}
-      ]
-    },
-    {
-      name: "稻麦香（金源店）",
-      isBrand: true,
-      logo: 21,
-      scores: 2.5,
-      sale: 2419,
-      bao: true,
-      ontime: true,
-      startPay: "￥0起送",
-      deliverPay: "配送费￥2",
-      evOnePay: "￥11/人",
-      journey: "150m",
-      time: "25分钟",
-      activities: [
-        {key: "减", text: "满20减2，满30减3，满40减4（不与美食活动同享）"}
-      ]
-    },
-    {
-      name: "米有理由（中关村店）",
-      logo: 11,
-      scores: 1.5,
-      sale: 1419,
-      startPay: "￥0起送",
-      deliverPay: "配送费￥5",
-      evOnePay: "￥12/人",
-      journey: "450m",
-      time: "45分钟"
-    },
-    {
-      name: "吉野家(鼎好店)",
-      isBrand: true,
-      logo: 16,
-      scores: 4.5,
-      sale: 3419,
-      ontime: true,
-      startPay: "￥0起送",
-      deliverPay: "配送费￥2",
-      evOnePay: "￥14/人",
-      journey: "150m",
-      time: "25分钟",
-      activities: [
-        {key: "减", text: "满20减2，满30减3，满40减4（不与美食活动同享）"},
-        {key: "新", text: "新品5折"},
-        {key: "特", text: "双人餐特惠"}
-      ]
-    },
-    {
-      name: "周大虾龙虾盖浇饭（中关村东路店）",
-      logo: 18,
-      scores: 4,
-      sale: 4013,
-      piao: true,
-      ontime: true,
-      fengniao: true,
-      startPay: "￥20起送",
-      deliverPay: "配送费￥4",
-      evOnePay: "￥21/人",
-      journey: "250m",
-      time: "35分钟",
-      activities: [
-        {key: "特", text: "双人餐特惠"}
-      ]
-    },
-    {
-      name: "轰咖咖喱饭（中关村东路店）",
-      isBrand: true,
-      logo: 17,
-      scores: 4,
-      sale: 4013,
-      piao: true,
-      fengniao: true,
-      startPay: "￥20起送",
-      deliverPay: "配送费￥4",
-      evOnePay: "￥21/人",
-      journey: "250m",
-      time: "35分钟"
-    },
-  ],
-  orderData: [
-    {
-      title: "来西口（酒仙桥）",
-      logo: 14,
-      state: "订单已完成",
-      time: "2016-09-05 12:11",
-      info: "特色油泼面等两件商品",
-      price: "￥57"
-    },
-    {
-      title: "杨铭宇黄焖鸡米饭",
-      logo: 15,
-      state: "订单已完成",
-      time: "2016-10-01 18:31",
-      info: "黄焖鸡小分（中辣）+米饭+饮料",
-      price: "￥27"
-    }
-  ],
-  breakFastData: [
-    {
-      title: "永和大王",
-      logo: 15,
-      state: "订单已完成",
-      time: "2016-04-01 09:11",
-      info: "大杯永和豆浆+饭",
-      price: "￥37"
-    }
-  ]
+    list: [
+        {
+            name: "田老师红烧肉（知春路店）",
+            logo: 27,
+            scores: 3.5,
+            sale: 4013,
+            evOnePay: "￥21/人",
+            distance: "250m",
+            bzHours: ['10:00', '21:00'],
+            category: '川菜/家常菜',
+            area: '华阳',
+            activities: [
+                {key: "买", text: "8.5折"},
+                {key: "特", text: "128元 双人餐特惠 249元 四人特惠套餐"}
+            ]
+        },
+        {
+            name: "稻麦香（金源店）",
+            logo: 21,
+            scores: 2.5,
+            sale: 2419,
+            evOnePay: "￥11/人",
+            distance: "150m",
+            bzHours: ['10:00', '21:00'],
+            category: '川菜/家常菜',
+            area: '华阳',
+            activities: [
+                {key: "买", text: "8.5折"},
+                {key: "减", text: "满20减2，满30减3，满40减4（不与美食活动同享）"}
+            ]
+        },
+        {
+            name: "米有理由（中关村店）",
+            logo: 11,
+            scores: 1.5,
+            sale: 1419,
+            evOnePay: "￥12/人",
+            distance: "450m",
+            bzHours: ['10:00', '21:00'],
+            category: '川菜/家常菜',
+            area: '华阳',
+            activities: [
+                {key: "买", text: "8.5折"},
+            ]
+        },
+        {
+            name: "吉野家(鼎好店)",
+            isBrand: true,
+            logo: 16,
+            scores: 4.5,
+            sale: 3419,
+            evOnePay: "￥14/人",
+            distance: "150m",
+
+            bzHours: ['10:00', '21:00'],
+            category: '川菜/家常菜',
+            area: '华阳',
+            activities: [
+                {key: "买", text: "8.5折"},
+                {key: "特", text: "双人餐特惠"}
+            ]
+        },
+        {
+            name: "周大虾龙虾盖浇饭（中关村东路店）",
+            logo: 18,
+            scores: 4,
+            sale: 4013,
+            evOnePay: "￥21/人",
+            distance: "250m",
+            bzHours: ['10:00', '21:00'],
+            category: '川菜/家常菜',
+            area: '华阳',
+            activities: [
+                {key: "买", text: "8.5折"},
+            ]
+        },
+        {
+            name: "轰咖咖喱饭（中关村东路店）",
+            isBrand: true,
+            logo: 17,
+            scores: 4,
+            sale: 4013,
+            evOnePay: "￥21/人",
+            distance: "250m",
+
+            bzHours: ['10:00', '21:00'],
+            category: '川菜/家常菜',
+            area: '华阳',
+            activities: [
+                {key: "买", text: "8.5折"},
+            ]
+        },
+    ],
+    orderData: [
+        {
+            title: "来西口（酒仙桥）",
+            logo: 14,
+            state: "订单已完成",
+            time: "2016-09-05 12:11",
+            info: "特色油泼面等两件商品",
+            price: "￥57"
+        },
+        {
+            title: "杨铭宇黄焖鸡米饭",
+            logo: 15,
+            state: "订单已完成",
+            time: "2016-10-01 18:31",
+            info: "黄焖鸡小分（中辣）+米饭+饮料",
+            price: "￥27"
+        }
+    ],
+    breakFastData: [
+        {
+            title: "永和大王",
+            logo: 15,
+            state: "订单已完成",
+            time: "2016-04-01 09:11",
+            info: "大杯永和豆浆+饭",
+            price: "￥37"
+        }
+    ]
 }
 let pics = ["h0","h1","h2","h3","h4","h6","h8","h9","h10","h11","h12","h13","h14","h15","hot3","sale0","sale1","sale2","sale3"]
 let len = pics.length
@@ -192,10 +186,10 @@ let goods = {
   ]
 }
 Object.keys(goods).forEach((item, i) => {
-  goods[item].forEach((e, j) => {
-    goods[item][j].key = i+"-"+j
-    //goods[item][j].image = pics[Math.floor(Math.random()*len)]
-  })
+    goods[item].forEach((e, j) => {
+        goods[item][j].key = i+"-"+j
+        //goods[item][j].image = pics[Math.floor(Math.random()*len)]
+    })
 })
 d.goods = goods
 export default d
