@@ -427,7 +427,7 @@ export default class HomePage extends Component {
             {this._renderGift()}
           </View>
 
-          <View style={styles.business}>
+          <View style={styles.recommandWrap}>
             <Text style={{color: "#666", paddingLeft: 16, paddingBottom: 6}}>{"推荐商家"}</Text>
             {this._renderBZ()}
             <ActivityIndicator style={{marginTop: 10}} animating={this.state.listLoading}/>
@@ -531,7 +531,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 16
   },
-  business: {
+  recommandWrap: {
     backgroundColor: "#fff",
     marginTop: 10,
     paddingVertical: 16
