@@ -5,7 +5,6 @@ import React, { Component } from 'react'
 import {
     Text,
     View,
-    BackAndroid,
     ScrollView,
     StyleSheet,
     AlertIOS,
@@ -51,7 +50,7 @@ export default class HomePage extends Component {
             listLoading: false,
             isRefreshing: false,
             isScrolled: false,
-            searchBoxW: new Animated.Value(200),
+            lbsButtonShow: true,
         };
         this.SEARCH_BOX_Y = px2dp(isIOS?48:43);
         this.SEARCH_FIX_Y = headH-px2dp(isIOS?64:44);
@@ -60,13 +59,7 @@ export default class HomePage extends Component {
         this.SEARCH_FIX_DIFF_Y = headH-this.SEARCH_FIX_Y-headH;
     }
 
-    componentDidMount(){
-        BackAndroid.addEventListener('hardwareBackPress', function () {
-            BackAndroid.exitApp(0)
-            return true
-        })
-    }
-    
+
     _renderHeader(){
         let searchBoxWidth = this.state.scrollY.interpolate({
             inputRange: [0, 10, 11],
@@ -79,8 +72,8 @@ export default class HomePage extends Component {
             extrapolate: 'clamp'
         });
 
-        return (
-            <Header style={[styles.header]}>
+        let renderLbsButton = () => {
+            return (
                 <Left style={{flex: 2}} >
                     <Animated.View style={[styles.lbsWrapper, {opacity: lbsOpacity}]}>
                         <TouchableWithoutFeedback onPress={this.openLbs.bind(this)}>
@@ -92,6 +85,11 @@ export default class HomePage extends Component {
                         </TouchableWithoutFeedback>
                     </Animated.View>
                 </Left>
+            );
+        }
+        return (
+            <Header style={[styles.header]}>
+                {this.state.lbsButtonShow && renderLbsButton()}
                 <Body style={{flex: 6, justifyContent: 'space-between'}}>
                     <Animated.View style={{
                         flex: 20,
@@ -109,9 +107,11 @@ export default class HomePage extends Component {
                 <Right style={{flex: 2}}>
                     <Animated.View style={{opacity: this.state.searchView}}>
                         <TouchableWithoutFeedback onPress={this.closeSearch.bind(this)}>
+                            <View>
                             <Text>
                                 取消
                             </Text>
+                            </View>
                         </TouchableWithoutFeedback>
                     </Animated.View>
                 </Right>
@@ -124,12 +124,14 @@ export default class HomePage extends Component {
             toValue: 1,
             duration: 200
         }).start();
+        this.setState({lbsButtonShow: false});
     }
-    closeSearch(){
+    closeSearch() {
         Animated.timing(this.state.searchView, {
             toValue: 0,
             duration: 200
         }).start();
+        this.setState({lbsButtonShow: true});
     }
     openLbs(){
         this.setState({modalVisible: true})

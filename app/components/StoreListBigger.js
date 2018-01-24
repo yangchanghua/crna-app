@@ -16,7 +16,7 @@ const stores = [
         name: '王妈热卤',
         // avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
         avatar_url: require('../images/store_1.png'),
-        icon: 'fitness-center',
+        icon: 'food-for-drink',
         distance: 0.2,
         discount: 8.0,
         addr: '成都市华阳正北下街44号'
@@ -52,7 +52,7 @@ const stores = [
         name: '王妈热卤',
         // avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
         avatar_url: require('../images/store_1.png'),
-        icon: 'fitness-center',
+        icon: 'food-fork-drink',
         distance: 0.2,
         discount: 8.0,
         addr: '成都市华阳正北下街44号'
@@ -95,8 +95,8 @@ export default class StoreListBigger extends Component {
         return (
             <List>
                 {
-                    stores.map((item) => (
-                        <ListItem avatar onPress={() => this.handleStoreClick(item)}
+                    stores.map((item, i) => (
+                        <ListItem key={i} avatar onPress={() => this.handleStoreClick(item)}
                                   style={{margin: 5}}>
                             <Left>
                                 <Thumbnail square large source={item.avatar_url}/>

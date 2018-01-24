@@ -46,20 +46,13 @@ const RootTabs = TabNavigator({
                     <Button
                         vertical
                         active={props.navigationState.index === 1}
-                        onPress={() => props.navigation.navigate("Home")}>
-                        <Icon name="home" />
-                        <Text>首页</Text>
-                    </Button>
-                    <Button
-                        vertical
-                        active={props.navigationState.index === 2}
                         onPress={() => props.navigation.navigate("NearBy")}>
-                        <Icon name="ion-ios-location" />
+                        <Icon name="ios-pin" />
                         <Text>附近</Text>
                     </Button>
                     <Button
                         vertical
-                        active={props.navigationState.index === 3}
+                        active={props.navigationState.index === 2}
                         onPress={() => props.navigation.navigate("Profile")}>
                         <Icon name="person" />
                         <Text>我的</Text>

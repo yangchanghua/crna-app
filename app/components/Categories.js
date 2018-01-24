@@ -14,7 +14,7 @@ const categories = [
         name: '健身',
         // avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
         avatar_url: '../images/store_1.png',
-        icon: 'fitness-center',
+        icon: 'food-fork-drink',
     },
     {
         name: '电影',
