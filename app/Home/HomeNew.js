@@ -1,33 +1,28 @@
 
 'use strict';
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {
-    Text,
-    View,
+    ActivityIndicator,
+    Animated,
+    Dimensions,
+    Image,
+    Platform,
+    RefreshControl,
     ScrollView,
     StyleSheet,
-    AlertIOS,
-    RefreshControl,
+    Text,
     TouchableOpacity,
-    TouchableNativeFeedback,
-    TouchableHighlight,
-    Image,
-    TextInput,
-    Platform,
     TouchableWithoutFeedback,
-    Dimensions,
-    ActivityIndicator,
-    Animated
+    View
 } from 'react-native'
 import LocalImg from '../images'
 import px2dp from '../util'
 import Icon from 'react-native-vector-icons/Ionicons'
 import SearchView from '../component/SearchView'
 import LbsModal from '../component/LbsModal'
-import TabView from '../component/TabView'
 
-import {Container, Title, Header, Left, Body, Right, Content, Button} from 'native-base';
+import {Body, Button, Container, Content, Header, Left, Right, Title} from 'native-base';
 import ShopCategories from "./ShopCategories";
 import ShopListView from "./ShopListView";
 import InvitationBar from "./InvitationBar";

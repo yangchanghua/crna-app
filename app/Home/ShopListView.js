@@ -1,27 +1,6 @@
 'use strict';
 
-import React, { Component } from 'react'
-import {
-    Text,
-    View,
-    BackAndroid,
-    ScrollView,
-    StyleSheet,
-    AlertIOS,
-    RefreshControl,
-    TouchableOpacity,
-    TouchableNativeFeedback,
-    TouchableHighlight,
-    Image,
-    TextInput,
-    Platform,
-    TouchableWithoutFeedback,
-    Dimensions,
-    ActivityIndicator,
-    Animated
-} from 'react-native'
-import LocalImg from '../images'
-import px2dp from '../util'
+import React from 'react'
 
 import ShopAvatarView from '../component/ShopAvatarView'
 import DetailPage from '../pages/DetailPage'

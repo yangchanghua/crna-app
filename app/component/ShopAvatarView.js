@@ -1,18 +1,8 @@
 'use strict';
 
-
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'; // ES6
-
-import {
-    Text,
-    StyleSheet,
-    Image,
-    View,
-    TouchableHighlight,
-    TouchableNativeFeedback
-} from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
+import {Image, StyleSheet, Text, View} from 'react-native'
 import LocalImg from '../images'
 import px2dp from '../util'
 import Button from './Button'
@@ -22,14 +12,14 @@ export default class ShopAvatarView extends Component {
         super(props)
     }
     static propTypes = {
-        name: PropTypes.string.isRequired, // 商家名
-        logo: PropTypes.number.isRequired, // 商家logo
+        name: PropTypes.string.isRequired,
+        logo: PropTypes.number.isRequired,
         isBrand: PropTypes.bool,
-        scores: PropTypes.number, //商家评分
-        sale: PropTypes.number, //月销售量
-        evOnePay: PropTypes.string, // 费用/人
-        distance: PropTypes.string, // 路程
-        time: PropTypes.string, // 送餐时间
+        scores: PropTypes.number,
+        sale: PropTypes.number,
+        evOnePay: PropTypes.string,
+        distance: PropTypes.string,
+        time: PropTypes.string,
         activities: PropTypes.array,
         onPress: PropTypes.func
     }
@@ -123,13 +113,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: "#f5f5f5"
     },
-    bzBox: {
-        flexDirection: "row",
-        paddingVertical: 10,
-        paddingRight: 10,
-        borderTopWidth: 1,
-        borderTopColor: "#f9f9f9"
-    },
     bzLogo: {
         resizeMode: "contain",
         borderWidth: 1,
@@ -152,46 +135,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#333",
         marginLeft: 3
-    },
-    brand: {
-        fontSize: 12,
-        color: "#52250a",
-        paddingHorizontal: 3,
-        paddingVertical: 2,
-        backgroundColor: "#ffdc37"
-    },
-    label: {
-        fontSize: 10,
-        color: "#999",
-        borderWidth: 1,
-        borderColor: "#eee",
-        textAlign: "center",
-        paddingHorizontal: 1,
-        paddingVertical: 1,
-        borderRadius: 3
-    },
-    label1: {
-        fontSize: 10,
-        color: "#00abff",
-        borderWidth: 1,
-        borderColor: "#00abff",
-        textAlign: "center",
-        paddingHorizontal: 1,
-        paddingVertical: 1,
-        borderRadius: 3
-    },
-    label2: {
-        fontSize: 10,
-        color: "#fff",
-        backgroundColor: "#00abff",
-        textAlign: "center",
-        paddingHorizontal: 2,
-        paddingVertical: 1,
-    },
-    line: {
-        fontSize: px2dp(11),
-        color: "#999",
-        paddingHorizontal: 3
     },
     infoText: {
         fontSize: px2dp(11),
