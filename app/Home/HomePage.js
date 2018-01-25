@@ -33,6 +33,10 @@ const headH = px2dp(isIOS?140:120);
 const InputHeight = px2dp(28);
 
 export default class HomePage extends Component {
+
+    static navigationOptions = ({navigation}) => ({
+        header: null
+    });
     constructor(props){
         super(props);
         const {state} = this.props.navigation;
@@ -173,7 +177,7 @@ export default class HomePage extends Component {
 
                     <View style={styles.recommandWrap}>
                         <Text style={{color: "#666", paddingLeft: 16, paddingBottom: 6}}>{"推荐商家"}</Text>
-                        <ShopListView/>
+                        <ShopListView navigation={this.props.navigation}/>
                         <ActivityIndicator style={{marginTop: 10}} animating={this.state.listLoading}/>
                     </View>
                 </ScrollView>

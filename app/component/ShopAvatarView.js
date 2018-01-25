@@ -21,7 +21,7 @@ export default class ShopAvatarView extends Component {
         distance: PropTypes.string,
         time: PropTypes.string,
         activities: PropTypes.array,
-        onPress: PropTypes.func
+        shopClicked: PropTypes.func
     }
     renderActivities(){
         let color = {
@@ -50,10 +50,10 @@ export default class ShopAvatarView extends Component {
         }
     }
     render(){
-        const {name, isBrand, logo, scores, sale, evOnePay, distance, activities, bzHours, category, area, onPress} = this.props
+        const {name, isBrand, logo, scores, sale, evOnePay, distance, activities, bzHours, category, area, shopClicked} = this.props
         let scale = scores/5*55;
         return (
-            <Button onPress={onPress}>
+            <Button onPress={shopClicked}>
                 <View style={styles.bzWrap}>
                     <View style={styles.border}>
                         <Image source={logo} style={styles.bzLogo}/>

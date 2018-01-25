@@ -6,7 +6,7 @@ import NearBy from './NearBy/NearBy';
 import { TabNavigator } from "react-navigation";
 
 import { Button, Text, Icon, Footer, FooterTab } from "native-base";
-import HomeNew from "./Home/HomeNew";
+import HomeNew from "./Home/HomePage";
 
 const RootTabs = TabNavigator({
     HomeNew: {

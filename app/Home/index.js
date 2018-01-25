@@ -5,7 +5,8 @@ import Search from '../Search/Search'
 import StoreSearchResult from '../StoreSearchResult/StoreSearchResult'
 import Store from '../Store/Store'
 import Pay from '../Pay/Pay'
-import Home from "./Home";
+import Home from "./HomePage";
+import ShopDetail from '../pages/ShopDetail';
 import {Header, Left, Button, Icon, Body, Title, Right} from 'native-base';
 
 const HomeNavigator = StackNavigator({
@@ -25,7 +26,7 @@ const HomeNavigator = StackNavigator({
             tabBarVisible: false,
         })
     },
-    Store: {screen: Store,
+    ShopDetail: {screen: ShopDetail,
         navigationOptions: ({ navigation }) => ({
             tabBarVisible: false,
         })
