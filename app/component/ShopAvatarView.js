@@ -29,8 +29,8 @@ export default class ShopAvatarView extends Component {
             "特": "#f1884f",
             "新": "#73f08e"
         }
-        let {activities} = this.props
-        if(!activities || !activities.length){
+        let {activities} = this.props;
+        if(!this.props.showActivities || !activities || !activities.length){
             return null
         }else{
             return (
@@ -50,7 +50,7 @@ export default class ShopAvatarView extends Component {
         }
     }
     render(){
-        const {name, isBrand, logo, scores, sale, evOnePay, distance, activities, bzHours, category, area, shopClicked} = this.props
+        const {name, isBrand, logo, scores, sale, evOnePay, distance, activities, bzHours, category, area, shopClicked} = this.props;
         let scale = scores/5*55;
         return (
             <Button onPress={shopClicked}>
@@ -87,9 +87,9 @@ export default class ShopAvatarView extends Component {
                                 <View style={{flexDirection: "row", flex: 1}}>
                                     <Text style={styles.infoText}>{evOnePay}</Text>
                                 </View>
-                                <View style={{flexDirection: "row", justifyContent:"flex-end"}}>
+                                {this.props.showDistance && (<View style={{flexDirection: "row", justifyContent:"flex-end"}}>
                                     <Text style={styles.infoText}>{distance}</Text>
-                                </View>
+                                </View>)}
                             </View>
                             {this.renderActivities()}
                         </View>
@@ -117,8 +117,8 @@ const styles = StyleSheet.create({
         resizeMode: "contain",
         borderWidth: 1,
         borderColor: "#f9f9f9",
-        width: px2dp(60),
-        height: px2dp(60)
+        width: px2dp(100),
+        height: px2dp(100)
     },
     bzContent: {
         marginLeft: 6,

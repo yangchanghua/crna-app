@@ -10,6 +10,7 @@ let d = {
             bzHours: ['10:00', '21:00'],
             category: '川菜/家常菜',
             area: '华阳',
+            addr: '成都市双流县华阳西街6号',
             activities: [
                 {key: "买", text: "8.5折"},
                 {key: "特", text: "128元 双人餐特惠 249元 四人特惠套餐"}
@@ -25,6 +26,7 @@ let d = {
             bzHours: ['10:00', '21:00'],
             category: '川菜/家常菜',
             area: '华阳',
+            addr: '成都市双流县华阳西街6号',
             activities: [
                 {key: "买", text: "8.5折"},
                 {key: "减", text: "满20减2，满30减3，满40减4（不与美食活动同享）"}
@@ -40,6 +42,7 @@ let d = {
             bzHours: ['10:00', '21:00'],
             category: '川菜/家常菜',
             area: '华阳',
+            addr: '成都市双流县华阳西街6号',
             activities: [
                 {key: "买", text: "8.5折"},
             ]
@@ -56,6 +59,7 @@ let d = {
             bzHours: ['10:00', '21:00'],
             category: '川菜/家常菜',
             area: '华阳',
+            addr: '成都市双流县华阳西街6号',
             activities: [
                 {key: "买", text: "8.5折"},
                 {key: "特", text: "双人餐特惠"}
@@ -71,6 +75,7 @@ let d = {
             bzHours: ['10:00', '21:00'],
             category: '川菜/家常菜',
             area: '华阳',
+            addr: '成都市双流县华阳西街6号',
             activities: [
                 {key: "买", text: "8.5折"},
             ]
@@ -87,6 +92,7 @@ let d = {
             bzHours: ['10:00', '21:00'],
             category: '川菜/家常菜',
             area: '华阳',
+            addr: '成都市双流县华阳西街6号',
             activities: [
                 {key: "买", text: "8.5折"},
             ]

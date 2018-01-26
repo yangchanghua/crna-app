@@ -14,43 +14,22 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
-import Parabolic from '../component/ParaBolic'
-import px2dp from '../util'
+import Parabolic from './ParaBolic'
+import px2dp from '../util/index'
 import LocalImg from '../images'
 import data from '../data'
-import NavBar from '../component/NavBar'
-import TabViewBar from '../component/MyDefTabBar'
+import NavBar from './NavBar'
+import TabViewBar from './MyDefTabBar'
 import GoodsList from '../pages/GoodsList'
 import Comments from '../pages/Comments'
-import ShopBar from '../component/ShopBar'
+import ShopBar from './ShopBar'
 import {BlurView} from 'react-native-blur'
 import {Body, Card, CardItem, Container, Content, Header, Left, Right, Title} from 'native-base';
-import Button from "../component/Button";
+import Button from "./Button";
 
 let {width, height} = Dimensions.get('window')
 
 export default class ShopDetail extends Component {
-    static navigationOptions = ({navigation}) => ({
-        header: (
-            <Header>
-                <Left>
-                    <Button transparent onPress={() => navigation.goBack()}>
-                        <Icon name="ios-arrow-back"/>
-                    </Button>
-                </Left>
-                <Right>
-                    <View style={{flexDirection: 'row'}}>
-                        <TouchableOpacity style={styles.headerIcon}>
-                        <Icon name="ios-share-alt" style={{size: 12}} onPress={()=>{}}/>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.headerIcon}>
-                        <Icon name="ios-star-outline" onPress={()=>{}}/>
-                        </TouchableOpacity>
-                    </View>
-                </Right>
-            </Header>
-        )
-    });
     constructor(props){
         super(props);
 
@@ -76,7 +55,7 @@ export default class ShopDetail extends Component {
     componentDidMount(){
         let marginTop = 18+px2dp(80+this.state.data.activities.length*18)
         let { scrollY } = this.refs.goodsList.state
-        let activeHeight = px2dp(18)*2
+        let activeHeight = px2dp(18)*2;
         this.setState({
             activeOpacity: scrollY.interpolate({inputRange: [0, activeHeight],outputRange: [1, 0]}),
             bgScale: scrollY.interpolate({inputRange: [ -marginTop, 0, marginTop],outputRange: [2, 1, 1]}),
@@ -86,57 +65,13 @@ export default class ShopDetail extends Component {
             bgY: scrollY.interpolate({inputRange: [ -marginTop, 0, marginTop, marginTop],outputRange: [marginTop/2, 0, -marginTop/3, -marginTop/3]})
         })
     }
-    back(){
-        this.props.navigator.pop()
-    }
+
     onAdd(data){
         let { pos } = data
         this.setState({
             addBtnY: data.y
         })
         this.refs["parabolic"].run(pos, data)
-    }
-    parabolicEnd(data){
-        let { selected, lens } = this.state
-        let num = (lens[data.data.key]||0)+1
-        let price = lens.maxPrice || 0
-        let length = lens.length || 0
-        lens[data.data.key] = num
-        lens.maxPrice = price+data.data.price
-        lens.length = length + 1
-        selected.push(data.data)
-        this.state.runBtn.setValue(0)
-        this.setState({ addBtnY: -9999, selected, lens})
-        this.refs.shopbar.runAnimate()
-    }
-    renderGoods(){
-        let marginTop = 18+px2dp(this.state.data.activities.length*18)
-        let MAIN_HEIGHT = height - NavBar.topbarHeight
-        let CONTENT_HEIGHT = MAIN_HEIGHT - marginTop
-        let style = {
-            transform: [{
-                translateY: this.state.scrollY
-            }]
-        }
-        if(Platform.OS == "android"){
-            style.height = height + 80
-        }
-
-        return (
-            <Animated.View style={[styles.topView, style]}>
-                <View style={{
-                    backgroundColor: "#f3f3f3",
-                    height: MAIN_HEIGHT,
-                    width,
-                    marginTop
-                }}>
-                    <ScrollableTabView page={0} renderTabBar={() => <TabViewBar/>}>
-                        <GoodsList ref="goodsList" minus={this.minusItem.bind(this)} lens={this.state.lens} goods={this.state.goods} onAdd={this.onAdd.bind(this)} headHeight={marginTop} tabLabel="商品"/>
-                        <Comments headHeight={marginTop} tabLabel="评价(4.1分)"/>
-                    </ScrollableTabView>
-                </View>
-            </Animated.View>
-        )
     }
     minusItem(obj){
         let { selected,lens } = this.state
@@ -202,47 +137,43 @@ export default class ShopDetail extends Component {
                 <View style={styles.head}>
                     <Animated.View style={{flexDirection: "row", paddingHorizontal: 16, opacity: this.state.headOpacity}}>
                         <Image source={LocalImg.bg} style={styles.logo}/>
-                        <View style={{marginLeft: 14, flex: 1}}>
-                            <Text>{data.name}</Text>
-                            <TouchableOpacity>
-                                <View style={{flexDirection: "row", paddingTop: 8, paddingBottom: 8}}>
-                                        <View style={{flexDirection: "row", flex: 1}}>
-                                            <View>
-                                                <Image source={LocalImg.star2} style={{height: 10, width: 55}}/>
-                                                <View style={{height: 10, position:"absolute", left:0, top:0, width: scale, overflow:"hidden"}}>
-                                                    <Image source={LocalImg.star1} style={{height: 10, width: 55}}/>
-                                                </View>
-                                            </View>
-                                            <Text style={{fontSize: px2dp(11), color: "#ff6000"}}>{scores}</Text>
-                                            <Text style={{fontSize: px2dp(11), color: "#666", marginLeft: 2}}>{`月售${sale}单`}</Text>
+                        <View style={styles.bzContent}>
+                            <View style={styles.between}>
+                                <View style={{flexDirection: "row", flex: 1}}>
+                                    <Text numberOfLines={1} style={styles.name}>{name}</Text>
+                                </View>
+                            </View>
+                            <View style={[styles.between, {marginTop: 8}]}>
+                                <View style={{flexDirection: "row", flex: 1}}>
+                                    <View>
+                                        <Image source={LocalImg.star2} style={{height: 10, width: 55}}/>
+                                        <View style={{height: 10, position:"absolute", left:0, top:0, width: scale, overflow:"hidden"}}>
+                                            <Image source={LocalImg.star1} style={{height: 10, width: 55}}/>
                                         </View>
-                                        <View style={{flexDirection: "row", flex: 1}}>
-                                            <Text style={styles.infoText}>{category}</Text>
-                                        </View>
-                                        <View style={{flexDirection: "row", justifyContent:"flex-end"}}>
-                                            <Text style={styles.infoText}>{area}</Text>
-                                        </View>
-                                        <View style={{flexDirection: "row", flex: 1}}>
-                                            <Text style={styles.infoText}>{evOnePay}</Text>
-                                        </View>
-                                 </View>
-                            </TouchableOpacity>
+                                    </View>
+                                    <Text style={{fontSize: px2dp(11), color: "#ff6000"}}>{scores}</Text>
+                                    <Text style={{fontSize: px2dp(11), color: "#666", marginLeft: 2}}>{`月售${sale}单`}</Text>
+                                </View>
+                            </View>
+                            <View style={[styles.between, {marginTop: 8}]}>
+                                <View style={{flexDirection: "row", flex: 1}}>
+                                    <Text style={styles.infoText}>{category}</Text>
+                                </View>
+                                <View style={{flexDirection: "row", justifyContent:"flex-end"}}>
+                                    <Text style={styles.infoText}>{area}</Text>
+                                </View>
+                            </View>
+                            <View style={[styles.between, {marginTop: 8}]}>
+                                <View style={{flexDirection: "row", flex: 1}}>
+                                    <Text style={styles.infoText}>{evOnePay}</Text>
+                                </View>
+                                <View style={{flexDirection: "row", justifyContent:"flex-end"}}>
+                                    <Text style={styles.infoText}>{distance}</Text>
+                                </View>
+                            </View>
                         </View>
                     </Animated.View>
-                    {this.renderActivities()}
                 </View>
-                {this.renderGoods()}
-                <Parabolic
-                    ref={"parabolic"}
-                    style={[styles.tmpBtn, {top: this.state.addBtnY}]}
-                    renderChildren={() => {
-                        return (
-                            <View style={{width:px2dp(14), height:px2dp(14), backgroundColor:"#3190e8", borderRadius: px2dp(7), overflow:"hidden"}}></View>
-                        )
-                    }}
-                    animateEnd={this.parabolicEnd.bind(this)}
-                />
-                <ShopBar ref={"shopbar"} list={this.state.selected} lens={this.state.lens}/>
             </View>
         )
     }
@@ -264,7 +195,8 @@ const styles = StyleSheet.create({
         color: "#666"
     },
     headerIcon: {
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        fontSize: 16
     },
     bg:{
         width,
