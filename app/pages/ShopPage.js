@@ -154,15 +154,39 @@ export default class ShopPage extends Component {
         return (
             <View style={{flex: 1, backgroundColor: "#fff"}}>
                 {/*<BlurView {...props} style={styles.blur}/>*/}
-                <View style={styles.shopInfo}>
-                    <ShopAvatarView {...data}/>
-                    <View style={styles.extraInfo}>
-                        <Icon name='ios-clock-outline' style={{fontSize: px2dp(14), marginRight: px2dp(10)}}/>
-                        <Text style={{fontSize: px2dp(14)}}>营业时间：{data.bzHours[0]} - {data.bzHours[1]}</Text>
+                <View style={styles.shopInfoCard}>
+                    <View style={styles.shopInfoBody}>
+                        <ShopAvatarView {...data}/>
+                        <View style={styles.extraInfo}>
+                            <Icon name='ios-clock-outline' style={{fontSize: px2dp(14), marginRight: px2dp(10)}}/>
+                            <Text style={{fontSize: px2dp(14)}}>营业时间：{data.bzHours[0]} - {data.bzHours[1]}</Text>
+                        </View>
+                        <View style={styles.extraInfo}>
+                            <Icon name='ios-pin-outline' style={{fontSize: px2dp(14), marginRight: px2dp(10)}}/>
+                            <Text style={{fontSize: px2dp(14)}}>{data.addr}</Text>
+                        </View>
                     </View>
-                    <View style={styles.extraInfo}>
-                        <Icon name='ios-pin-outline' style={{fontSize: px2dp(14), marginRight: px2dp(10)}}/>
-                        <Text style={{fontSize: px2dp(14)}}>{data.addr}</Text>
+                </View>
+                <View style={styles.shopInfoCard}>
+                    <View style={styles.shopInfoBody}>
+                        <View style={[styles.extraInfo, {justifyContent: 'space-between'}] }>
+                            <View style={{flexDirection: 'row'}}>
+                                <View>
+                                    <Text style={styles.payIcon}>惠</Text>
+                                </View>
+                                <View style={{flexDirection: 'column', marginLeft: 5, paddingHorizontal: 5}}>
+                                    <Text style={{fontSize: px2dp(12), fontWeight: 'bold'}}>独享优惠买单</Text>
+                                    <Text style={styles.payDetail}>{data.activities[0].text}</Text>
+                                </View>
+                            </View>
+                            <View>
+                                <TouchableOpacity style={styles.payButton}>
+                                    <Text style={{fontSize: px2dp(14), color: "#fff"}}>买单</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View>
+                        </View>
                     </View>
                 </View>
                 {this.renderGoods()}
@@ -183,18 +207,39 @@ export default class ShopPage extends Component {
 }
 
 const styles = StyleSheet.create({
-    shopInfo:{
-        paddingBottom: 10,
+    shopInfoCard:{
+        paddingBottom: px2dp(10),
         backgroundColor: "#f5f5f5"
+    },
+
+    shopInfoBody: {
+        paddingHorizontal: px2dp(10),
+        borderBottomColor: "#f5f5f5",
+        backgroundColor: '#fff',
     },
 
     extraInfo: {
         flexDirection: 'row',
         alignItems: 'center',
         padding: px2dp(10),
-        color: "#666",
         borderBottomColor: "#f5f5f5",
         backgroundColor: '#fff',
+    },
+    payIcon: {
+        fontSize: px2dp(11),
+        color: "#fff",
+        backgroundColor:  "#f07373",
+        paddingHorizontal: 1,
+        paddingVertical: 1
+    },
+    payButton: {
+        backgroundColor: '#f07373',
+        paddingHorizontal: px2dp(20),
+        paddingVertical: px2dp(5),
+    },
+    payDetail: {
+        fontSize: px2dp(12),
+        color: "#ff3c29"
     },
     headerIcon: {
         paddingHorizontal: 10,
